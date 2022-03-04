@@ -15,7 +15,7 @@ def add(request):
 
         correct_answer = int(old_num_1) + int(old_num_2)
 
-        if answer == correct_answer:
+        if int(answer) == correct_answer:
             my_answer = 'Correct!'
         else:
             my_answer = 'Incorrect!'
