@@ -5,8 +5,8 @@ def home(request):
     return render(request, 'home.html', {})
 
 def add(request):
-    num_1 = random.randint(a=0, b=10)
-    num_2 = random.randint(a=0, b=10)
+    num_1 = random.randint(a=0, b=30)
+    num_2 = random.randint(a=0, b=30)
 
     if request.method == "POST":
         answer = request.POST.get('answer')
@@ -16,9 +16,9 @@ def add(request):
         correct_answer = int(old_num_1) + int(old_num_2)
 
         if int(answer) == correct_answer:
-            my_answer = 'Correct!'
+            my_answer = 'Correct!' + old_num_1 ' + ' + old_num_2 + ' = ' + answer
         else:
-            my_answer = 'Incorrect!'
+            my_answer = 'Incorrect!' + old_num_1 ' + ' + old_num_2 + ' IS NOT ' + answer
 
         return render(request, 'add.html', context = {
             'answer':answer,
