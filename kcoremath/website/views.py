@@ -16,7 +16,7 @@ def add(request):
     return render(request, 'add.html', {
         'num_1': num_1,
         'num_2': num_2,
-    })
+        })
 
 def subtract(request):
     return render(request, 'subtract.html', {})
