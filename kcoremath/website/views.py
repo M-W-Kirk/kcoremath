@@ -16,9 +16,9 @@ def add(request):
         correct_answer = int(old_num_1) + int(old_num_2)
 
         if int(answer) == correct_answer:
-            my_answer = 'Correct!' + old_num_1 ' + ' + old_num_2 + ' = ' + answer
+            my_answer = 'Correct!' + old_num_1 + ' + ' + old_num_2 + ' = ' + str(correct_answer) + '.'
         else:
-            my_answer = 'Incorrect!' + old_num_1 ' + ' + old_num_2 + ' IS NOT ' + answer
+            my_answer = 'Incorrect!' + old_num_1 + ' + ' + old_num_2 + ' is not ' + answer + '.  It is ' + str(correct_answer) + '.'
 
         return render(request, 'add.html', context = {
             'answer':answer,
