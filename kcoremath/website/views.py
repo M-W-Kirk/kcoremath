@@ -115,9 +115,22 @@ def divide(request):
         old_num_1 = request.POST.get('old_num_1')
         old_num_2 = request.POST.get('old_num_2')
 
-        correct_answer = int(old_num_1) * int(old_num_2)
+        if not answer:
+            outcome = 'Hey!!!   '
+            my_answer = 'It looks like you forgot to submit your solution in the Answer Box below.'
+            color = 'warning'
+            return render(request, 'divide.html', {
+                'outcome':outcome,
+                'my_answer':my_answer,
+                'num_1':num_1,
+                'num_2':num_2,
+                'color':color
+            })
 
-        if float(answer) == correct_answer:
+        correct_answer_1 = int(old_num_1) / int(old_num_2)
+        correct_answer_2 = round(correct_answer_1, 2)
+
+        if float(answer) == correct_answer_2:
             outcome = 'Correct!   '
             my_answer = old_num_1 + ' / ' + old_num_2 + ' = ' + str(correct_answer) + '.'
             color = 'success'
