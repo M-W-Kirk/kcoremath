@@ -1,13 +1,13 @@
 from django.shortcuts import render
-
+from random import randint
 # Create your views here.
 def home(request):
     return render(request, 'home.html', {})
 
 def add(request):
     from random import randint
-    num_1 = randint(0, 20)
-    num_2 = randint(0, 20)
+    num_1 = randint(a=0, b=10)
+    num_2 = randint(a=0, b=10)
 
     if request.method == "POST":
         answer = request.POST.get('answer')
