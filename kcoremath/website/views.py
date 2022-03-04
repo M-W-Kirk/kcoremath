@@ -10,6 +10,8 @@ def add(request):
 
     if request.method == "POST":
         answer = request.POST.get('answer')
+        old_num_1 = request.POST.get('old_num_1')
+        old_num_2 = request.POST.get('old_num_2')
         return render(request, 'add.html', context = {'answer':answer,})
     
     return render(request, 'add.html', context = {
