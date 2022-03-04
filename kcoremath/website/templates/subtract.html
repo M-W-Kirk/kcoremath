@@ -2,15 +2,62 @@
 {% block 'content' %}
 <main class="content">
     <div class="container-fluid p-0">
-        <h1 class="h3 mb-3">Subtraction</h1>
-        <p>
+        <h1 class="h3 mb-3">Math Facts Subtraction Section</h1>
+        {% if my_answer %}
+        <div class="alert alert-{{ color }} alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="alert-message">
+                <strong>{{ outcome }}</strong> {{ my_answer }}
+            </div>
+        </div>
+        {% endif %}
         <div class="row">
-            <div class="col-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title mb-0">Empty card</h5>
+            <div class="col-12 col-sm-6 col-xxl-3 d-flex">
+                <div class="card flex-fill">
+                    <div class="card-body py-4">
+                        <div class="d-flex align-items-start">
+                            <div class="flex-grow-1">
+                                <h1 class="mb-2">{{ num_1 }} - {{ num_2 }} = ?</h1>
+                                <p class="mb-2">Subtraction Math Facts</p>
+                                <div class="mb-0">
+                                    <span class="badge badge-soft-success me-2"> +5.35% </span>
+                                    <span class="text-muted">Since last practice</span>
+                                </div>
+                            </div>
+                            <div class="d-inline-block ms-3">
+                                <div class="stat">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign align-middle text-success"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-body">
+                </div>
+            </div>
+            <div class="col-12 col-sm-6 col-xxl-3 d-flex">
+                <div class="card flex-fill">
+                    <div class="card-body py-4">
+                        <div class="d-flex align-items-start">
+                            <div class="flex-grow-1">
+                                <h3 class="mb-2">Answer Box</h3>
+                                <div class="card-body">
+                                    <form action="{% url 'website:subtract' %}" method="POST">
+                                        {% csrf_token %}         
+                                        <div class="mb-3">
+                                            <label class="form-label">Type Your Solution</label>
+                                            <input class="form-control" type="text" placeholder="Answer here..." name="answer"></input>
+                                            <input type="hidden" name="old_num_1" value="{{ num_1 }}">
+                                            <input type="hidden" name="old_num_2" value="{{ num_2 }}">
+                                        </div>                            
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </form>								
+                                </div>
+                            </div>
+                            <div class="d-inline-block ms-3">
+                                <div class="stat">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-shopping-bag align-middle text-danger"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path><line x1="3" y1="6" x2="21" y2="6"></line><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
