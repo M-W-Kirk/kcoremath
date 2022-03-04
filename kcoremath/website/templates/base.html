@@ -60,24 +60,23 @@
 					<li class="sidebar-header">
 						Pages
 					</li>
-					<li class="sidebar-item">
+					<li class="sidebar-item active">
 						<a data-bs-target="#dashboards" data-bs-toggle="collapse" class="sidebar-link collapsed">
 							<i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Practice-boards</span>
 							<span class="badge badge-sidebar-primary">4</span>
 						</a>
-						<ul id="dashboards" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+						<ul id="dashboards" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
 							<li class="sidebar-item"><a class="sidebar-link" href="{% url 'website:multiply' %}">Multiplication</a></li>
 							<li class="sidebar-item"><a class="sidebar-link" href="{% url 'website:divide' %}">Division</a></li>
 							<li class="sidebar-item"><a class="sidebar-link" href="{% url 'website:add' %}">Addition</a></li>
 							<li class="sidebar-item"><a class="sidebar-link" href="{% url 'website:subtract' %}">Subtraction</a></li>
 						</ul>
 					</li>
-					<li class="sidebar-item active">
+					<li class="sidebar-item">
 						<a data-bs-target="#pages" data-bs-toggle="collapse" class="sidebar-link">
 							<i class="align-middle" data-feather="layout"></i> <span class="align-middle">Pages</span>
 						</a>
-						<ul id="pages" class="sidebar-dropdown list-unstyled collapse show" data-bs-parent="#sidebar">
-							<li class="sidebar-item"><a class="sidebar-link" href="#">Settings</a></li>
+						<ul id="pages" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
 							<li class="sidebar-item"><a class="sidebar-link" href="#">Participants</a></li>
 							<li class="sidebar-item">
 								<a data-bs-target="#projects" data-bs-toggle="collapse" class="sidebar-link collapsed">
@@ -104,6 +103,7 @@
 							<span class="badge badge-sidebar-secondary">Beta</span>
 						</a>
 						<ul id="auth" class="sidebar-dropdown list-unstyled collapse " data-bs-parent="#sidebar">
+							<li class="sidebar-item"><a class="sidebar-link" href="#">Settings</a></li>
 							<li class="sidebar-item"><a class="sidebar-link" href="#">Reset Password</a></li>
 						</ul>
 					</li>
