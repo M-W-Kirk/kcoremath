@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from random import randint
+import random
 # Create your views here.
 def home(request):
     return render(request, 'home.html', {})
