@@ -4,7 +4,8 @@ from django.urls import path
 app_name = "website"
 
 urlpatterns = [
-   path('', views.home, name='home'),
+   path('', views.login, name='login'),
+   path('home.html', views.home, name='home'),
    path('add.html', views.add, name='add'),
    path('subtract.html', views.subtract, name="subtract"),
    path('multipy.html', views.multiply, name='multiply'),
