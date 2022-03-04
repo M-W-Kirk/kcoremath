@@ -7,15 +7,15 @@ def login(request):
         password = request.POST.get('pass_word')
         if (str(username) == 'Caramia' and str(password) == '246810'):
             return render(request, 'home.html', {})
-            if not (str(username) == 'Caramia' and str(password) == '246810'):
-                outcome = 'OH NO!!!'
-                my_answer = 'It looks like your username or password is incorrect. Please try again.'
-                color = 'danger'
-                return render(request, 'login.html', {
-                    'outcome':outcome,
-                    'my_answer':my_answer,
-                    'color':color,
-                })
+        else:
+            outcome = 'OH NO!!!'
+            my_answer = 'It looks like your username or password is incorrect. Please try again.'
+            color = 'danger'
+            return render(request, 'login.html', {
+                'outcome':outcome,
+                'my_answer':my_answer,
+                'color':color,
+            })
     return render(request, 'login.html', {})
 
 def home(request):
