@@ -13,6 +13,18 @@ def add(request):
         old_num_1 = request.POST.get('old_num_1')
         old_num_2 = request.POST.get('old_num_2')
 
+        if not answer:
+            outcome = 'Hey!!!   '
+            my_answer = 'It looks like you forgot to submit your solution in the Answer Box below.'
+            color = 'warning'
+            return render(request, 'add.html', {
+                'outcome':outcome,
+                'my_answer':my_answer,
+                'num_1':num_1,
+                'num_2':num_2,
+                'color':color
+            })
+
         correct_answer = int(old_num_1) + int(old_num_2)
 
         if int(answer) == correct_answer:
@@ -47,6 +59,18 @@ def subtract(request):
         old_num_1 = request.POST.get('old_num_1')
         old_num_2 = request.POST.get('old_num_2')
 
+        if not answer:
+            outcome = 'Hey!!!   '
+            my_answer = 'It looks like you forgot to submit your solution in the Answer Box below.'
+            color = 'warning'
+            return render(request, 'subtract.html', {
+                'outcome':outcome,
+                'my_answer':my_answer,
+                'num_1':num_1,
+                'num_2':num_2,
+                'color':color
+            })
+
         correct_answer = int(old_num_1) - int(old_num_2)
 
         if int(answer) == correct_answer:
@@ -80,6 +104,18 @@ def multiply(request):
         answer = request.POST.get('answer')
         old_num_1 = request.POST.get('old_num_1')
         old_num_2 = request.POST.get('old_num_2')
+
+        if not answer:
+            outcome = 'Hey!!!   '
+            my_answer = 'It looks like you forgot to submit your solution in the Answer Box below.'
+            color = 'warning'
+            return render(request, 'multiply.html', {
+                'outcome':outcome,
+                'my_answer':my_answer,
+                'num_1':num_1,
+                'num_2':num_2,
+                'color':color
+            })
 
         correct_answer = int(old_num_1) * int(old_num_2)
 
@@ -132,11 +168,11 @@ def divide(request):
 
         if float(answer) == correct_answer_2:
             outcome = 'Correct!   '
-            my_answer = old_num_1 + ' / ' + old_num_2 + ' = ' + str(correct_answer) + '.'
+            my_answer = old_num_1 + ' / ' + old_num_2 + ' = ' + str(correct_answer_2) + '.'
             color = 'success'
         else:
             outcome = 'Incorrect!   '
-            my_answer = old_num_1 + ' / ' + old_num_2 + ' is not ' + answer + '.  It is ' + str(correct_answer) + '.'
+            my_answer = old_num_1 + ' / ' + old_num_2 + ' is not ' + answer + '.  It is ' + str(correct_answer_2) + '.'
             color = 'danger'
 
         return render(request, 'divide.html', context = {
