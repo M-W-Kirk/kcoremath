@@ -11,10 +11,11 @@
                         <h5 class="card-title mb-0">Empty card</h5>
                     </div>
                     <div class="card-body">
-                        <form>                            
+                        <form>
+                            {% csrf_token %}                            
                             <div class="mb-3">
                                 <label class="form-label">Solution</label>
-                                <input class="form-control" placeholder="Answer here..."></input>
+                                <input class="form-control" type="text" placeholder="Answer here..."></input>
                             </div>                            
                             <div class="mb-3">
                                 <label class="form-check m-0">
