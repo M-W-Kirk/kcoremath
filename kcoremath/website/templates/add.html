@@ -2,6 +2,14 @@
 {% block 'content' %}
 <main class="content">
     <div class="container-fluid p-0">
+        {% if my_answer %}
+        <div class="alert alert-{{ color }} alert-dismissible" role="alert">
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            <div class="alert-message">
+                <strong>Hello there!</strong> {{ my_answer }}
+            </div>
+        </div>
+        {% endif %}
         <h1 class="h1 mb-3">{{ num_1 }} + {{ num_2 }} = ?</h1>
         <div class="row">
             <div class="col-12">
