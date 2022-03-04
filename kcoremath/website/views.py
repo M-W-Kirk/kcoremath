@@ -73,8 +73,8 @@ def subtract(request):
         })
 
 def multiply(request):
-    num_1 = random.randint(a=0, b=30)
-    num_2 = random.randint(a=0, b=30)
+    num_1 = random.randint(a=0, b=10)
+    num_2 = random.randint(a=0, b=10)
 
     if request.method == "POST":
         answer = request.POST.get('answer')
