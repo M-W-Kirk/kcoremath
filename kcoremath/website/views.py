@@ -8,8 +8,8 @@ def add(request):
     if request.method == "POST":
         answer = request.POST['answer']
         return render(request, 'add.html', {'answer': answer})
-    else:
-        return render(request, 'add.html', {})
+    
+    return render(request, 'add.html', {})
 
 def subtract(request):
     return render(request, 'subtract.html', {})
