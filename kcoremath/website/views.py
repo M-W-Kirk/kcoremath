@@ -5,17 +5,16 @@ def home(request):
     return render(request, 'home.html', {})
 
 def add(request):
-    from random import randint
-    num_1 = randint(a=0, b=10)
-    num_2 = randint(a=0, b=10)
+    num_1 = random.randint(a=0, b=10)
+    num_2 = random.randint(a=0, b=10)
 
     if request.method == "POST":
         answer = request.POST.get('answer')
-        return render(request, 'add.html', {'answer': answer})
+        return render(request, 'add.html', context = {'answer':answer,})
     
-    return render(request, 'add.html', {
-        'num_1': num_1,
-        'num_2': num_2,
+    return render(request, 'add.html', context = {
+        'num_1':num_1,
+        'num_2':num_2,
         })
 
 def subtract(request):
