@@ -5,7 +5,11 @@ def home(request):
     return render(request, 'home.html', {})
 
 def add(request):
-    return render(request, 'add.html', {})
+    if request.method == "POST":
+        answer = request.POST['answer']
+        return render(request, 'add.html', {'answer': answer})
+    else:
+        return render(request, 'add.html', {})
 
 def subtract(request):
     return render(request, 'subtract.html', {})
