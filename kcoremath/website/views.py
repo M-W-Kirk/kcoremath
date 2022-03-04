@@ -23,6 +23,8 @@ def add(request):
         return render(request, 'add.html', context = {
             'answer':answer,
             'my_answer':my_answer,
+            'num_1':num_1,
+            'num_2':num_2,
             })
     
     return render(request, 'add.html', context = {
