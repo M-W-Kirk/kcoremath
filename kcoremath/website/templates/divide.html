@@ -43,7 +43,7 @@
                                     <form action="{% url 'website:divide' %}" method="POST">
                                         {% csrf_token %}         
                                         <div class="mb-3">
-                                            <label class="form-label">Type Your Solution</label>
+                                            <label class="form-label">Type Your Solution To The Second Decimal Placement</label>
                                             <input class="form-control" type="text" placeholder="Answer here..." name="answer"></input>
                                             <input type="hidden" name="old_num_1" value="{{ num_1 }}">
                                             <input type="hidden" name="old_num_2" value="{{ num_2 }}">
