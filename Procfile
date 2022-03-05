@@ -1,1 +1,1 @@
-web: gunicorn kcoremath.kcoremath.wsgi
+web: gunicorn --chdir kcoremath kcoremath.wsgi
