@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'kcoremath.wsgi.application'
+WSGI_APPLICATION = 'kcoremath.kcoremath.wsgi.application'
 
 
 # Database
