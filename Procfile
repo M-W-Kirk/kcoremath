@@ -1,1 +1,1 @@
-web: gunicorn kcoremath.kcoremath.wsgi
+web: gunicorn kcoremath.kcoremath.kcoremath.wsgi
