@@ -48,6 +48,9 @@ def add(request):
             outcome = 'Correct!   '
             my_answer = old_num_1 + ' + ' + old_num_2 + ' = ' + str(correct_answer) + '.'
             color = 'success'
+            count = 1
+            progress += count
+            correct_percentage = progress + '% Progress' 
         else:
             outcome = 'Incorrect!   '
             my_answer = old_num_1 + ' + ' + old_num_2 + ' is not ' + answer + '.  It is ' + str(correct_answer) + '.'
