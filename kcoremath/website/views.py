@@ -21,7 +21,12 @@ def login(request):
 
 def login_user(request):
     if request.method == "POST":
-        pass
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return render(request, 'home.html', {})
     else:
         outcome = 'OH NO!!!'
         directions = 'It looks like your username or password is incorrect. Please try again.'
