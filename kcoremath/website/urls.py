@@ -10,5 +10,5 @@ urlpatterns = [
    path('subtract.html', views.subtract, name="subtract"),
    path('multipy.html', views.multiply, name='multiply'),
    path('divide.html', views.divide, name='divide'),
-   path('login.html', views.login_user, name='login_user'),
+   path('login2.html', views.login_user, name='login2'),
 ]
