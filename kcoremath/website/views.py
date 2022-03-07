@@ -24,11 +24,11 @@ def login_user(request):
         pass
     else:
         outcome = 'OH NO!!!'
-        my_answer = 'It looks like your username or password is incorrect. Please try again.'
+        directions = 'It looks like your username or password is incorrect. Please try again.'
         color = 'danger'
         return render(request, 'login2.html', {
             'outcome':outcome,
-            'my_answer':my_answer,
+            'directions':directions,
             'color':color,
         })
 
