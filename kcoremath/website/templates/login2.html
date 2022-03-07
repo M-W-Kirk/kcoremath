@@ -69,12 +69,12 @@
 										<form action="{% url 'website:login' %}" method="POST">  
                                             {% csrf_token %}
 											<div class="mb-3">
-												<label class="form-label">Username</label>
-												<input class="form-control form-control-lg" type="text" name="user_name" placeholder="Enter your username">
+												<label class="form-label">Email</label>
+												<input class="form-control form-control-lg" type="email" name="user_name" placeholder="Enter your email">
 											</div>
 											<div class="mb-3">
 												<label class="form-label">Password</label>
-												<input class="form-control form-control-lg" type="text" name="pass_word" placeholder="Enter your password">
+												<input class="form-control form-control-lg" type="password" name="pass_word" placeholder="Enter your password">
 												<small>
                                                     <a href="#">Forgot password?</a>
                                                 </small>
