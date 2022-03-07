@@ -51,7 +51,7 @@ def add(request):
             count = 0
             while count <= 100:
                 count += count
-                progress = count + '% Progress' 
+                progress = str(count) + '% Progress' 
         else:
             outcome = 'Incorrect!   '
             my_answer = old_num_1 + ' + ' + old_num_2 + ' is not ' + answer + '.  It is ' + str(correct_answer) + '.'
