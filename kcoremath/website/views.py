@@ -20,7 +20,17 @@ def login(request):
     return render(request, 'login.html', {})
 
 def login_user(request):
-    return render(request, 'login2.html', {})
+    if request.method == "POST":
+        pass
+    else:
+        outcome = 'OH NO!!!'
+        my_answer = 'It looks like your username or password is incorrect. Please try again.'
+        color = 'danger'
+        return render(request, 'login2.html', {
+            'outcome':outcome,
+            'my_answer':my_answer,
+            'color':color,
+        })
 
 def home(request):
     return render(request, 'home.html', {})
