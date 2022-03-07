@@ -47,11 +47,7 @@ def add(request):
         if int(answer) == correct_answer:
             outcome = 'Correct!   '
             my_answer = old_num_1 + ' + ' + old_num_2 + ' = ' + str(correct_answer) + '.'
-            color = 'success'
-            count = 0
-            while count <= 100:
-                count += count
-                progress = str(count) + '% Progress' 
+            color = 'success' 
         else:
             outcome = 'Incorrect!   '
             my_answer = old_num_1 + ' + ' + old_num_2 + ' is not ' + answer + '.  It is ' + str(correct_answer) + '.'
@@ -64,8 +60,6 @@ def add(request):
             'num_2':num_2,
             'color':color,
             'outcome':outcome,
-            'progress':progress,
-            'count':count,
             })
     
     return render(request, 'add.html', context = {
