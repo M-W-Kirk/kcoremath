@@ -1,7 +1,9 @@
 from django.shortcuts import render
 from django.contrib.auth import authenticate, login, logout
 import random
+
 # Create your views here.
+'''
 def login(request):
     if request.method == 'POST':
         username = request.POST.get('user_name')
@@ -18,7 +20,7 @@ def login(request):
                 'color':color,
             })
     return render(request, 'login.html', {})
-
+'''
 def login_user(request):
     if request.method == "POST":
         username = request.POST.get('username')
@@ -27,15 +29,17 @@ def login_user(request):
         if user is not None:
             login(request, user)
             return render(request, 'home.html', {})
+        if user is None:
+            outcome = 'OH NO!!!'
+            directions = 'It looks like your username or password is incorrect. Please try again.'
+            color = 'danger'
+            return render(request, 'login2.html', {
+                'outcome':outcome,
+                'directions':directions,
+                'color':color,
+            })
     else:
-        outcome = 'OH NO!!!'
-        directions = 'It looks like your username or password is incorrect. Please try again.'
-        color = 'danger'
-        return render(request, 'login2.html', {
-            'outcome':outcome,
-            'directions':directions,
-            'color':color,
-        })
+        return render(request, 'login2.html', {})
 
 def home(request):
     return render(request, 'home.html', {})
