@@ -20,7 +20,7 @@ def login(request):
     return render(request, 'login.html', {})
 
 def login_user(request):
-    return authenticate(request, 'authenticate/login.html', {})
+    return authenticate(request, 'login.html', {})
 
 def home(request):
     return render(request, 'home.html', {})
