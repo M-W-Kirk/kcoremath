@@ -47,8 +47,13 @@ def login_user(request):
 
 def logout_user(request):
     logout(request)
-    messages.success(request, ("You've been logged out. See you soon."))
-    return redirect('logout')
+    outcome = "You've been signed out."
+    directions = 'To regain access, sign back in below. See you soon.'
+    color = 'info'
+    return render(request, 'login2.html', {
+        'outcome':outcome,
+        'directions':directions,
+        'color':color,})
 
 def home(request):
     return render(request, 'home.html', {})
