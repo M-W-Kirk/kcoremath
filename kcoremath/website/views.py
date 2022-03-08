@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 import random
 
@@ -42,6 +42,10 @@ def login_user(request):
             })
     else:
         return render(request, 'login2.html', {})
+
+def logout_user(request):
+    logout(request)
+    redirect(request, 'login2.html')
 
 def home(request):
     return render(request, 'home.html', {})
