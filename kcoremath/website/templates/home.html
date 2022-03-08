@@ -1,11 +1,12 @@
 {% extends 'base.html' %}
 {% block 'content' %}
+{% if user.is_authenticated %}
 <main class="content">
     <div class="container-fluid p-0">
 
         <div class="row mb-2 mb-xl-3">
             <div class="col-auto d-none d-sm-block">
-                <h3>Hey {{ user }}! Welcome to your Dashboard.</h3>
+                <h3>Hey {{ user.username }}! Welcome to your Dashboard.</h3>
             </div>
         <div class="row">
             <div class="col-12 col-sm-6 col-xxl-3 d-flex">
@@ -123,7 +124,6 @@
                                 </div>
                                 <div class="chartjs-size-monitor-shrink">
                                     <div class="">
-
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +148,6 @@
 
                             </div>
                         </div>
-
                         <hr>
                         <div class="d-flex align-items-start">
                             <img src="img/avatars/avatar.jpg" class="rounded-circle me-2" alt="Chris Wood" width="36" height="36">
@@ -182,7 +181,6 @@
                 </div>
             </div>
         </div>
-
         <div class="row">
             <div class="col-12 col-lg-6 col-xl-4 d-flex">
                 <div class="card flex-fill">
@@ -238,7 +236,6 @@
                                     <canvas id="chartjs-dashboard-pie" style="display: block; height: 150px; width: 294px;" class="chartjs-render-monitor" width="588" height="300"></canvas>
                                 </div>
                             </div>
-
                             <table class="table mb-0">
                                 <thead>
                                     <tr>
@@ -319,7 +316,6 @@
                 </div>
             </div>
         </div>
-
         <div class="card flex-fill">
             <div class="card-header">
                 <div class="card-actions float-end">
@@ -392,10 +388,45 @@
                 </tbody>
             </table>
         </div>
-    </div><div class="row"><div class="col-sm-12 col-md-5"><div class="dataTables_info" id="datatables-dashboard-projects_info" role="status" aria-live="polite">Showing 1 to 6 of 9 entries</div></div><div class="col-sm-12 col-md-7"><div class="dataTables_paginate paging_simple_numbers" id="datatables-dashboard-projects_paginate"><ul class="pagination"><li class="paginate_button page-item previous disabled" id="datatables-dashboard-projects_previous"><a href="#" aria-controls="datatables-dashboard-projects" data-dt-idx="0" tabindex="0" class="page-link">Previous</a></li><li class="paginate_button page-item active"><a href="#" aria-controls="datatables-dashboard-projects" data-dt-idx="1" tabindex="0" class="page-link">1</a></li><li class="paginate_button page-item "><a href="#" aria-controls="datatables-dashboard-projects" data-dt-idx="2" tabindex="0" class="page-link">2</a></li><li class="paginate_button page-item next" id="datatables-dashboard-projects_next"><a href="#" aria-controls="datatables-dashboard-projects" data-dt-idx="3" tabindex="0" class="page-link">Next</a></li></ul></div></div></div></div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12 col-md-5">
+            <div class="dataTables_info" id="datatables-dashboard-projects_info" role="status" aria-live="polite">
+                Showing 1 to 6 of 9 entries
+            </div>
+        </div>
+        <div class="col-sm-12 col-md-7">
+            <div class="dataTables_paginate paging_simple_numbers" id="datatables-dashboard-projects_paginate">
+                <ul class="pagination">
+                    <li class="paginate_button page-item previous disabled" id="datatables-dashboard-projects_previous">
+                        <a href="#" aria-controls="datatables-dashboard-projects" data-dt-idx="0" tabindex="0" class="page-link">
+                            Previous
+                        </a>
+                    </li>
+                    <li class="paginate_button page-item active">
+                        <a href="#" aria-controls="datatables-dashboard-projects" data-dt-idx="1" tabindex="0" class="page-link">
+                            1
+                        </a>
+                    </li>
+                    <li class="paginate_button page-item ">
+                        <a href="#" aria-controls="datatables-dashboard-projects" data-dt-idx="2" tabindex="0" class="page-link">
+                            2
+                        </a>
+                    </li>
+                    <li class="paginate_button page-item next" id="datatables-dashboard-projects_next">
+                        <a href="#" aria-controls="datatables-dashboard-projects" data-dt-idx="3" tabindex="0" class="page-link">
+                            Next
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
         </div>
     </div>
 </main>
+{% endif %}
 <script>
     document.addEventListener("DOMContentLoaded", function() {
         // Bar chart
