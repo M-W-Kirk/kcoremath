@@ -280,6 +280,7 @@
 <!--*******START TOP NAVBAR***********************************************************************-->
 <!--**********************************************************************************************-->
 <!--**********************************************************************************************-->		
+		{% if user.is_authenticated %}
 		<div class="main">
 			<nav class="navbar navbar-expand navbar-light navbar-bg">
 				<a class="sidebar-toggle">
@@ -494,13 +495,13 @@
 					</a>
 
 							<a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-								<img src="{% static 'img/avatars/caramia.png' %}" class="avatar img-fluid rounded-circle me-1" alt="Caramia Kirkpatrick" /> <span class="text-dark">Caramia Kirkpatrick</span>
+								<img src="{% static 'img/avatars/caramia.png' %}" class="avatar img-fluid rounded-circle me-1" alt="{{ user.username }}" /> <span class="text-dark">{{ user.username }}</span>
 							</a>
 							<div class="dropdown-menu dropdown-menu-end">
 								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="user"></i> Profile</a>
 								<a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
 								<div class="dropdown-divider"></div>
-								<a class="dropdown-item" href="#">Settings & Privacy</a>
+								<a class="dropdown-item" href="#">Settings</a>
 								<a class="dropdown-item" href="#">Help</a>
 								<a class="dropdown-item" href="{% url 'website:login' %}">Sign out</a>
 							</div>
@@ -508,6 +509,7 @@
 					</ul>
 				</div>
 			</nav>
+		{% endif %}
 <!--**********************************************************************************************-->
 <!--**********************************************************************************************-->
 <!--*******END TOP NAVBAR*************************************************************************-->
