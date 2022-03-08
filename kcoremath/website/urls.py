@@ -10,5 +10,6 @@ urlpatterns = [
    path('subtract.html', views.subtract, name="subtract"),
    path('multipy.html', views.multiply, name='multiply'),
    path('divide.html', views.divide, name='divide'),
-   path('login2/', views.login_user, name='login2'),
+   path('sign-in/', views.login_user, name='login2'),
+   path('sign-out/', views.logout_user, name='logout'),
 ]
