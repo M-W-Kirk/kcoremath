@@ -28,7 +28,9 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            return render(request, 'home.html', {})
+            return render(request, 'home.html', {
+                'user':user,
+            })
         if user is None:
             outcome = 'OH NO!!!'
             directions = 'It looks like your username or password is incorrect. Please try again.'
