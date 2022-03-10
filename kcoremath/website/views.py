@@ -51,7 +51,7 @@ def logout_user(request):
     outcome = "You've been signed out."
     directions = 'To regain access, sign back in below. See you soon.'
     color = 'info'
-    return render(request, 'login2.html', {
+    return render(request, 'logout.html', {
         'outcome':outcome,
         'directions':directions,
         'color':color,})
