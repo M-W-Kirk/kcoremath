@@ -4,7 +4,7 @@ from django.urls import path
 app_name = "website"
 
 urlpatterns = [
-   path('', views.login, name='login'),
+   path('', views.login_user, name='login2'),
    path('home.html', views.home, name='home'),
    path('add.html', views.add, name='add'),
    path('subtract.html', views.subtract, name="subtract"),
