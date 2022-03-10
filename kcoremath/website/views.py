@@ -23,6 +23,7 @@ def login(request):
             })
     return render(request, 'login.html', {})
 '''
+
 def login_user(request):
     if request.method == "POST":
         username = request.POST.get('username')
