@@ -5,6 +5,19 @@ from . import views
 import random
 
 # Create your views here.
+#-------------------------------------------------------------------
+#------URL BASIC ROUTING FUNCTIONS----------------------------------
+#-------------------------------------------------------------------
+def home(request):
+    return render(request, 'home.html', {})
+
+def redirect_signin(request):
+    return render(request, 'login2.html', {})
+
+
+#-------------------------------------------------------------------
+#------URL ROUTING FUNCTIONS----------------------------------------
+#-------------------------------------------------------------------
 '''
 def login(request):
     if request.method == 'POST':
@@ -55,9 +68,6 @@ def logout_user(request):
         'outcome':outcome,
         'directions':directions,
         'color':color,})
-
-def home(request):
-    return render(request, 'home.html', {})
 
 def add(request):
     num_1 = random.randint(a=0, b=30)
