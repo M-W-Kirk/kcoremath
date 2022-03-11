@@ -12,4 +12,5 @@ urlpatterns = [
    path('divide.html', views.divide, name='divide'),
    path('sign-in/', views.login_user, name='login2'),
    path('sign-out/', views.logout_user, name='logout'),
+   path('sign-in/', views.redirect_signin, name='redirect_signin'),
 ]
