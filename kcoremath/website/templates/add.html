@@ -18,7 +18,7 @@
                         <div class="d-flex align-items-start">
                             <div class="flex-grow-1">
                                 <h1 class="math mb-2">{{ num_1 }} + {{ num_2 }} = ?</h1>
-                                <p class="mb-2">{{ attempts }} of 100 Attempted Answers</p>
+                                <p class="mb-2">{% if not attempts%}0 of 100 Attempted Answers{% else %}{{ attempts }} of 100 Attempted Answers{% endif %}</p>
                                 <div class="progress mb-3">
                                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{ attempts }}%" aria-valuenow="{{ attempts }}" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>

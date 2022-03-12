@@ -81,13 +81,15 @@ def add(request):
         answer = request.POST.get('answer')
         old_num_1 = request.POST.get('old_num_1')
         old_num_2 = request.POST.get('old_num_2')
+
         attempts = request.session.get('attempts', 1)
         request.session['attempts'] = attempts + 1
-
+        
         if not answer:
             outcome = 'Hey!!!   '
             my_answer = 'It looks like you forgot to submit your solution in the Answer Box below.'
             color = 'warning'
+            
             return render(request, 'add.html', {
                 'outcome':outcome,
                 'my_answer':my_answer,
