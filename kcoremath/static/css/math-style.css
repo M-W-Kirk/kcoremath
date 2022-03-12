@@ -1,0 +1,15 @@
+h1.math {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-family: "Tinos", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-weight: 700;
+    line-height: 1.2;
+    font-size: calc(2.375rem + 1.5vw);
+  }
+
+@media (min-width: 1200px) {
+    h1.math {
+        font-size: 3.5rem;
+    }
+}   
+
