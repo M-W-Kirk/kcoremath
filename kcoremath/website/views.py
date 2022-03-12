@@ -81,6 +81,8 @@ def add(request):
         answer = request.POST.get('answer')
         old_num_1 = request.POST.get('old_num_1')
         old_num_2 = request.POST.get('old_num_2')
+        attempts = request.session.get('attempts', 1)
+        request.session['attempts'] = attempts + 1
 
         if not answer:
             outcome = 'Hey!!!   '
@@ -91,7 +93,8 @@ def add(request):
                 'my_answer':my_answer,
                 'num_1':num_1,
                 'num_2':num_2,
-                'color':color
+                'color':color,
+                'attempts':attempts,
             })
 
         correct_answer = int(old_num_1) + int(old_num_2)
@@ -112,6 +115,7 @@ def add(request):
             'num_2':num_2,
             'color':color,
             'outcome':outcome,
+            'attempts':attempts,
             })
     
     return render(request, 'add.html', context = {
