@@ -104,11 +104,15 @@ def add(request):
         if int(answer) == correct_answer:
             outcome = 'Correct!   '
             my_answer = old_num_1 + ' + ' + old_num_2 + ' = ' + str(correct_answer) + '.'
-            color = 'success' 
+            color = 'success'
+            request.session.get['result'] = True
+            result.correct += 1 
         else:
             outcome = 'Incorrect!   '
             my_answer = old_num_1 + ' + ' + old_num_2 + ' is not ' + answer + '.  It is ' + str(correct_answer) + '.'
             color = 'danger'
+            request.session.get['result'] = False
+            result.incorrect += 1
 
         return render(request, 'add.html', context = {
             'answer':answer,
@@ -118,6 +122,8 @@ def add(request):
             'color':color,
             'outcome':outcome,
             'attempts':attempts,
+            'correct':result.correct,
+            'incorrect':result.incorrect,
             })
     
     return render(request, 'add.html', context = {
