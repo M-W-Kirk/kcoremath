@@ -79,7 +79,7 @@
                         <tbody>
                             <tr>
                                 <td>Correct</td>
-                                <td class="text-end">{{ attempts }}</td>
+                                <td class="text-end">{% if not attempts%}0{% else %}{{ attempts }}{% endif %}</td>
                                 <td class="d-none d-xl-table-cell w-75">
                                     <div class="progress">
                                         <div class="progress-bar bg-success" role="progressbar" style="width: {{ attempts }}%;" aria-valuenow="{{ attempts }}" aria-valuemin="0" aria-valuemax="100"></div>
@@ -88,7 +88,7 @@
                             </tr>
                             <tr>
                                 <td>Incorrect</td>
-                                <td class="text-end">{{ attempts }}</td>
+                                <td class="text-end">{% if not attempts%}0{% else %}{{ attempts }}{% endif %}</td>
                                 <td class="d-none d-xl-table-cell w-75">
                                     <div class="progress">
                                         <div class="progress-bar bg-danger" role="progressbar" style="width: {{ attempts }}%;" aria-valuenow="{{ attempts }}" aria-valuemin="0" aria-valuemax="100"></div>
