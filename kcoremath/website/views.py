@@ -85,6 +85,9 @@ def add(request):
         attempts = request.session.get('attempts', 1)
         request.session['attempts'] = attempts + 1
 
+        correct = request.session.get('correct', 0)
+        incorrect = request.session.get('incorrect', 0)
+
         if not answer:
             outcome = 'Hey!!!   '
             my_answer = 'It looks like you forgot to submit your solution in the Answer Box below.'
@@ -105,18 +108,12 @@ def add(request):
             outcome = 'Correct!   '
             my_answer = old_num_1 + ' + ' + old_num_2 + ' = ' + str(correct_answer) + '.'
             color = 'success'
-            correct = request.session.get('correct', 1)
             request.session['correct'] = correct + 1
-            incorrect = request.session['incorrect']
-             
         else:
             outcome = 'Incorrect!   '
             my_answer = old_num_1 + ' + ' + old_num_2 + ' is not ' + answer + '.  It is ' + str(correct_answer) + '.'
             color = 'danger'
-            correct = request.session['correct']
-            incorrect = request.session.get('incorrect', 1)
             request.session['incorrect'] = incorrect + 1
-            
         return render(request, 'add.html', context = {
             'answer':answer,
             'my_answer':my_answer,
