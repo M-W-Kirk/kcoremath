@@ -19,6 +19,9 @@
                             <div class="flex-grow-1">
                                 <h1 class="math mb-2">{{ num_1 }} x {{ num_2 }} = ?</h1>
                                 <p class="mb-2">{% if not attempts %}0 of 100 Attempted Answers{% else %}{{ attempts }} of 100 Attempted Answers{% endif %}</p>
+                                <div class="progress mb-3">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{ attempts }}%" aria-valuenow="{{ attempts }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                </div>
                                 <div class="mb-0">
                                     <span class="badge badge-soft-success me-2"> +5.35% </span>
                                     <span class="text-muted">Since last practice</span>
