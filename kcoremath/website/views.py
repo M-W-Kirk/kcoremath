@@ -82,11 +82,7 @@ def add(request):
         old_num_1 = request.POST.get('old_num_1')
         old_num_2 = request.POST.get('old_num_2')
 
-        request.session['attempts'] = 1
-        request.session['correct'] = 0
-        request.session['incorrect'] = 0
-        
-        attempts = request.session.get('attempts')
+        attempts = request.session.get('attempts', 1)
         request.session['attempts'] = attempts + 1
 
         if not answer:
@@ -109,7 +105,7 @@ def add(request):
             outcome = 'Correct!   '
             my_answer = old_num_1 + ' + ' + old_num_2 + ' = ' + str(correct_answer) + '.'
             color = 'success'
-            correct = request.session['correct']
+            correct = request.session.get('correct', 1)
             request.session['correct'] = correct + 1
             incorrect = request.session['incorrect']
              
@@ -118,7 +114,7 @@ def add(request):
             my_answer = old_num_1 + ' + ' + old_num_2 + ' is not ' + answer + '.  It is ' + str(correct_answer) + '.'
             color = 'danger'
             correct = request.session['correct']
-            incorrect = request.session['incorrect']
+            incorrect = request.session.get('incorrect', 1)
             request.session['incorrect'] = incorrect + 1
             
         return render(request, 'add.html', context = {
