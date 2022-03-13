@@ -18,7 +18,7 @@
                         <div class="d-flex align-items-start">
                             <div class="flex-grow-1">
                                 <h1 class="math mb-2">{{ num_1 }} / {{ num_2 }} = ?</h1>
-                                <p class="mb-2">Division Math Facts</p>
+                                <p class="mb-2">{% if not attempts %}0 of 100 Attempted Answers{% else %}{{ attempts }} of 100 Attempted Answers{% endif %}</p>
                                 <div class="mb-0">
                                     <span class="badge badge-soft-success me-2"> +5.35% </span>
                                     <span class="text-muted">Since last practice</span>
