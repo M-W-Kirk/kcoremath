@@ -76,15 +76,19 @@ def logout_user(request):
 def add(request):
     num_1 = random.randint(a=0, b=30)
     num_2 = random.randint(a=0, b=30)
-
+    
     if request.method == "POST":
         answer = request.POST.get('answer')
         old_num_1 = request.POST.get('old_num_1')
         old_num_2 = request.POST.get('old_num_2')
 
-        attempts = request.session.get('attempts', 1)
-        request.session['attempts'] = attempts + 1
+        request.session['attempts'] = 1
+        request.session['correct'] = 0
+        request.session['incorrect'] = 0
         
+        attempts = request.session.get('attempts')
+        request.session['attempts'] = attempts + 1
+
         if not answer:
             outcome = 'Hey!!!   '
             my_answer = 'It looks like you forgot to submit your solution in the Answer Box below.'
@@ -105,15 +109,18 @@ def add(request):
             outcome = 'Correct!   '
             my_answer = old_num_1 + ' + ' + old_num_2 + ' = ' + str(correct_answer) + '.'
             color = 'success'
-            request.session.get['result'] = True
-            result.correct += 1 
+            correct = request.session['correct']
+            request.session['correct'] = correct + 1
+            incorrect = request.session['incorrect']
+             
         else:
             outcome = 'Incorrect!   '
             my_answer = old_num_1 + ' + ' + old_num_2 + ' is not ' + answer + '.  It is ' + str(correct_answer) + '.'
             color = 'danger'
-            request.session.get['result'] = False
-            result.incorrect += 1
-
+            correct = request.session['correct']
+            incorrect = request.session['incorrect']
+            request.session['incorrect'] = incorrect + 1
+            
         return render(request, 'add.html', context = {
             'answer':answer,
             'my_answer':my_answer,
@@ -122,8 +129,8 @@ def add(request):
             'color':color,
             'outcome':outcome,
             'attempts':attempts,
-            'correct':result.correct,
-            'incorrect':result.incorrect,
+            'correct':correct,
+            'incorrect':incorrect,
             })
     
     return render(request, 'add.html', context = {
