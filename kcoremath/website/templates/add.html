@@ -18,7 +18,7 @@
                         <div class="d-flex align-items-start">
                             <div class="flex-grow-1">
                                 <h1 class="math mb-2">{{ num_1 }} + {{ num_2 }} = ?</h1>
-                                <p class="mb-2">{% if not attempts%}0 of 100 Attempted Answers{% else %}{{ attempts }} of 100 Attempted Answers{% endif %}</p>
+                                <p class="mb-2">{% if not attempts %}0 of 100 Attempted Answers{% else %}{{ attempts }} of 100 Attempted Answers{% endif %}</p>
                                 <div class="progress mb-3">
                                     <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: {{ attempts }}%" aria-valuenow="{{ attempts }}" aria-valuemin="0" aria-valuemax="100"></div>
                                 </div>
@@ -79,19 +79,19 @@
                         <tbody>
                             <tr>
                                 <td>Correct</td>
-                                <td class="text-end">{{ correct }}</td>
+                                <td class="text-end">{% if not correct %}0{% else %}{{ correct }}{% endif %}</td>
                                 <td class="d-none d-xl-table-cell w-75">
                                     <div class="progress">
-                                        <div class="progress-bar bg-success" role="progressbar" style="width: {{ correct }}%;" aria-valuenow="{{ correct }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: {% if not correct %}0{% else %}{{ correct }}{% endif %}%;" aria-valuenow="{% if not correct %}0{% else %}{{ correct }}{% endif %}" aria-valuemin="1" aria-valuemax="100"></div>
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <td>Incorrect</td>
-                                <td class="text-end">{{ incorrect }}</td>
+                                <td class="text-end">{% if not incorrect %}0{% else %}{{ incorrect }}{% endif %}</td>
                                 <td class="d-none d-xl-table-cell w-75">
                                     <div class="progress">
-                                        <div class="progress-bar bg-danger" role="progressbar" style="width: {{ incorrect }}%;" aria-valuenow="{{ incorrect }}" aria-valuemin="0" aria-valuemax="100"></div>
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: {% if not incorrect %}0{% else %}{{ incorrect }}{% endif %}%;" aria-valuenow="{% if not incorrect %}0{% else %}{{ incorrect }}{% endif %}" aria-valuemin="1" aria-valuemax="100"></div>
                                     </div>
                                 </td>
                             </tr>

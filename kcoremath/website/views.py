@@ -85,8 +85,8 @@ def add(request):
         attempts = request.session.get('attempts', 1)
         request.session['attempts'] = attempts + 1
 
-        correct = request.session.get('correct', 1)
-        incorrect = request.session.get('incorrect', 1)
+        correct = request.session.get('correct', 0)
+        incorrect = request.session.get('incorrect', 0)
 
         if not answer:
             outcome = 'Hey!!!   '
@@ -139,6 +139,9 @@ def subtract(request):
         answer = request.POST.get('answer')
         old_num_1 = request.POST.get('old_num_1')
         old_num_2 = request.POST.get('old_num_2')
+        
+        attempts = request.session.get('attempts', 1)
+        request.session['attempts'] = attempts + 1
 
         if not answer:
             outcome = 'Hey!!!   '
@@ -170,6 +173,7 @@ def subtract(request):
             'num_2':num_2,
             'color':color,
             'outcome':outcome,
+            'attempts':attempts,
             })
     
     return render(request, 'subtract.html', context = {
@@ -185,6 +189,9 @@ def multiply(request):
         answer = request.POST.get('answer')
         old_num_1 = request.POST.get('old_num_1')
         old_num_2 = request.POST.get('old_num_2')
+
+        attempts = request.session.get('attempts', 1)
+        request.session['attempts'] = attempts + 1
 
         if not answer:
             outcome = 'Hey!!!   '
@@ -216,6 +223,7 @@ def multiply(request):
             'num_2':num_2,
             'color':color,
             'outcome':outcome,
+            'attempts':attempts,
             })
     
     return render(request, 'multiply.html', context = {
@@ -231,6 +239,9 @@ def divide(request):
         answer = request.POST.get('answer')
         old_num_1 = request.POST.get('old_num_1')
         old_num_2 = request.POST.get('old_num_2')
+
+        attempts = request.session.get('attempts', 1)
+        request.session['attempts'] = attempts + 1
 
         if not answer:
             outcome = 'Hey!!!   '
@@ -263,6 +274,7 @@ def divide(request):
             'num_2':num_2,
             'color':color,
             'outcome':outcome,
+            'attempts':attempts,
             })
     
     return render(request, 'divide.html', context = {
