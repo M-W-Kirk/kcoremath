@@ -85,8 +85,8 @@ def add(request):
         attempts = request.session.get('attempts', 1)
         request.session['attempts'] = attempts + 1
 
-        correct = request.session.get('correct', 0)
-        incorrect = request.session.get('incorrect', 0)
+        correct = request.session.get('correct', 1)
+        incorrect = request.session.get('incorrect', 1)
 
         if not answer:
             outcome = 'Hey!!!   '
