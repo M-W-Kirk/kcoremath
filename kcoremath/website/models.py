@@ -8,3 +8,4 @@ class Score(models.Model):
     incorrect = models.IntegerField()
     date = models.DateField()
     proficiency = models.DecimalField()
+    core_bucks = models.DecimalField()
