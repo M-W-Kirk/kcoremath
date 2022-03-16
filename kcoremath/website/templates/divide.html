@@ -65,6 +65,41 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12 col-lg-12 d-flex">
+                <div class="card flex-fill w-100">
+                    <table class="table table-striped my-0">
+                        <thead>
+                            <tr>
+                                <th>Answers</th>
+                                <th class="text-end">Counts</th>
+                                <th class="d-none d-xl-table-cell w-75">  </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Correct</td>
+                                <td class="text-end">{% if not correct %}0{% else %}{{ correct }}{% endif %}</td>
+                                <td class="d-none d-xl-table-cell w-75">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-success" role="progressbar" style="width: {% if not correct %}0{% else %}{{ correct }}{% endif %}%;" aria-valuenow="{% if not correct %}0{% else %}{{ correct }}{% endif %}" aria-valuemin="1" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Incorrect</td>
+                                <td class="text-end">{% if not incorrect %}0{% else %}{{ incorrect }}{% endif %}</td>
+                                <td class="d-none d-xl-table-cell w-75">
+                                    <div class="progress">
+                                        <div class="progress-bar bg-danger" role="progressbar" style="width: {% if not incorrect %}0{% else %}{{ incorrect }}{% endif %}%;" aria-valuenow="{% if not incorrect %}0{% else %}{{ incorrect }}{% endif %}" aria-valuemin="1" aria-valuemax="100"></div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
 
     </div>
 </main>
