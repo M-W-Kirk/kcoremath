@@ -2,7 +2,7 @@ from django.db import models
 
 # Create your models here.
 class Score(models.Model):
-    
+    # added this again.
     user = models.OneToOneField()
     attempts = models.IntegerField()
     correct = models.IntegerField()
